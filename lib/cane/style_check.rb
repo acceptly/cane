@@ -51,7 +51,7 @@ module Cane
 
     def violations_for_line(line)
       result = []
-      if line.length > measure
+      if line.length > measure && !line.strip.start_with?('#')
         result << "Line is >%i characters (%i)" % [measure, line.length]
       end
       result << "Line contains trailing whitespace" if line =~ /\s$/
